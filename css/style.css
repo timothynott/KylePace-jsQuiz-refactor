@@ -21,6 +21,7 @@ body{
 	border-bottom: 2px solid white;
 	padding: 0 1em;
 	background-color: #3F557F;
+	cursor: pointer;
 }
 
 .menu #learnMore{
@@ -33,10 +34,16 @@ body{
 	margin: 2em 1em;
 	border: 2px solid white;
 	background-color: #285FCC;
-	padding: 0.5em;
+	padding: 1em;
 	text-align: center;
 }
+.module > p{
+	padding: 1em 0;
+}
 
-.module h3{
-	
+.module #newGame{
+	border: 2px solid white;
+	max-width: 150px;
+	margin: auto;
+	padding: 0;
 }
