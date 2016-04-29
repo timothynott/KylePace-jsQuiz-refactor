@@ -1,0 +1,42 @@
+body{
+	background-color:#3277FF;
+	font-family: "Cambay", sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #7FAAFF;
+}
+
+.container{
+	top: 5em;
+	max-width: 500px;
+	margin: auto;
+	border: 2px solid white;
+	height: 500px;
+	background-color: #3277FF;
+}
+
+.menu{
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 2px solid white;
+	padding: 0 1em;
+	background-color: #3F557F;
+}
+
+.menu #learnMore{
+	border-left: 2px solid white;
+	width: 240px;
+	text-align: right
+}
+
+.module{
+	margin: 2em 1em;
+	border: 2px solid white;
+	background-color: #285FCC;
+	padding: 0.5em;
+	text-align: center;
+}
+
+.module h3{
+	
+}
