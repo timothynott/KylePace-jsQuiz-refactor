@@ -35,9 +35,12 @@ Question1Options: [“option 1”, “option 2”];
 Question2Options:
 correctAnswer2Index: 
 }
+///////////////getting and grading questions/////
 Var question = questions[“currentQuestions”].Question1Options;
-
 var questions = [riparian, appropriation, groundwater, spring, rain];
+
+var getQuestion = function(){
+}
 
 var judgeAnswer = function(selection){
 	//compare checked option to correct option index
