@@ -29,8 +29,9 @@ body{
 	width: 240px;
 	text-align: right
 }
-
+/* ///////// module //////////////////// */
 .module{
+	display: none;
 	margin: 2em 1em;
 	border: 2px solid white;
 	background-color: #285FCC;
@@ -47,3 +48,38 @@ body{
 	margin: auto;
 	padding: 0;
 }
+
+
+/*  question screen ////////////////////////*/
+
+.questionScreen #source{
+	text-align: center;
+	height: 98px;
+}
+
+.answerChoices{
+	display: flex;
+	cursor: pointer;
+}
+
+.answerChoices p{
+	margin: 5px;
+}
+
+.definitions{
+	height: 150px;
+	border-right: 2px solid white;
+	border-top: 2px solid white;
+	width: 250px;
+}
+
+.rights{
+	height: 150px;
+	border-top: 2px solid white;
+	width: 250px;
+}
+
+
+
+
+
