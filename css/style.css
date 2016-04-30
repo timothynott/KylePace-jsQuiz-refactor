@@ -1,11 +1,20 @@
 @media max-width: 500px{
 	.container{
-		max-width: 300px;
+		width: 300px;
+	}
+	.modal{
+		width: 250px;
+	}
+	.definitions{
+		width: 150px;
+	}
+	.right{
+		width: 150px;
 	}
 }
 
 body{
-	background-color:#3277FF;
+	background-size: cover;
 	font-family: "Cambay", sans-serif;
 	margin: 0;
 	padding: 0;

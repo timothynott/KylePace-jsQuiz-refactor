@@ -50,13 +50,19 @@ var answerDef = 0;
 var answerRight = 0;
 //// 1. get a new question ///////
 var getQuestion = function(){
+	// don't show the modal anymore
 	$(".modal").addClass("isHidden");
+	// de-select all answer choices
 	$(".definitions").removeClass("selected");
 	$(".rights").removeClass("selected");
+	// change the background
+	$("body").css("background-image", "url(" + backgrounds[currentQuestions]+")");
+	// pick answer options and correct answer index from source object
 	questionsDef = sources[currentQuestions].defOptions;
 	questionsRight = sources[currentQuestions].rightOptions;
 	answerDef = sources[currentQuestions].correctDefIndex;
 	answerRight = sources[currentQuestions].correctRightIndex;
+	// put the answer options onto the page
 	$("#source").text(sources[currentQuestions].name);
 	$("#def1 > p").text(questionsDef[0]);
 	$("#def2 > p").text(questionsDef[1]);
@@ -124,6 +130,7 @@ var showAnswer = function(){
 var newGame = function(){
 	currentQuestions = 0;
 	correctAnswers = 0;
+	$(".modal > #share").addClass("isHidden");
 	$(".questionScreen").addClass("isHidden");
 	$(".modal h3").text("Welcome to the California Water Rights Quiz!");
 	$(".modal > p").text("Test your knowledge on water rights required for the domestic use of different water sources. For each source, pick the correct definition from the left column and the required action from the right column.");
