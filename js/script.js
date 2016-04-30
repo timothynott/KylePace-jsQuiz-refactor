@@ -5,27 +5,44 @@ var newGame = function(){
 	currentQuestions = 0;
 	getQuestion();
 }
-
-var riparian = {
+var Supplier = {
+	defOptions: ["if you only use bottled water", "from a company or public utility"],
+	rightOptions: ["no action needed", "file a statement of use"],
+	correctDefIndex: 1,
+	correctRightIndex: 0,
+	toShow: "If you pay a monthly bill to someone for your tap water, then they get to deal with the Divison of Water Rights. Congratulations!"
+}
+var Riparian = {
 	defOptions: ["from a stream that touches your property", "from a stream that supports spawning salmonids"],
-	rightOptions: ["no action needed", "need to file a statement of use"],
+	rightOptions: ["no action needed", "file a statement of use"],
 	correctDefIndex: 0,
-	correctRightIndex: 1
+	correctRightIndex: 1,
+	toShow: "Riparian properties have a riparian right to natural flow, but don't go building any dams."
 }
-var appropriative = {
-
+var Appropriative = {
+	defOptions: ["from a stream that does not touch your property", "from an area with a net water gain"],
+	rightOptions: ["no action needed", "pay for and file water right annually"],
+	correctDefIndex: 0,
+	correctRightIndex: 1,
+	toShow: "Do you have a stream on your property that wouldn't be there naturally? Better make sure the Water Board knows about it..."
 }
-var groundwater = {
-
-}
-var spring = {
-
-}
-var rain = {
-
+var Groundwater = {
+	defOptions: ["from an artisan spring", "from a well"],
+	rightOptions: ["no action needed", "pay for and file water right annually"],
+	correctDefIndex: 1,
+	correctRightIndex: 0,
+	toShow: "Although you don't need a water right for a domestic, non-municipal well, check with your county for permits needed to drill a well."
 }
 
-var sources = [riparian, appropriative, groundwater, spring, rain];
+var Rain = {
+	defOptions: ["Rain is from rain...", "from your neighbor's sprinkler"],
+	rightOptions: ["no action needed", "storage not allowed"],
+	correctDefIndex: 0,
+	correctRightIndex: 0,
+	toShow: "You do not need a water right from the state to store rainwater - go tell your neighbors."
+}
+
+var sources = [Supplier, Riparian, Appropriative, Groundwater, Rain];
 var questionsDef = [];
 var questionsRight = [];
 var answerDef = 0;
@@ -37,6 +54,7 @@ var getQuestion = function(){
 	questionsRight = sources[currentQuestions].rightOptions;
 	answerDef = sources[currentQuestions].correctDefIndex;
 	answerRight = sources[currentQuestions].correctRightIndex;
+	$("#source").text(sources[currentQuestions]);
 	$("#def1 > p").text(questionsDef[0]);
 	$("#def2 > p").text(questionsDef[1]);
 	$("#right1 > p").text(questionsRight[0]);
@@ -75,7 +93,7 @@ var showAnswer = function(){
 	$(".modal > h3").text(judgment);
 	$(".modal > #correctAnswers").text(correctAnswers+" of ");
 	$(".modal > #currentQuestions").text(currentQuestions);
-	$(".modal > p").text("");
+	$(".modal > p").text(toShow);
 	$(".modal > .button > p").text("Next Question");
 	$(".modal").removeClass("isHidden");
 	$(".questionScreen").addClass("isHidden");
