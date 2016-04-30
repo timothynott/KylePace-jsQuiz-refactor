@@ -43,6 +43,8 @@ body{
 	padding: 1em;
 	text-align: center;
 	z-index: 99;
+	position: absolute;
+	max-width: 400px;
 }
 .modal > p{
 	padding: 1em 0;
@@ -69,6 +71,7 @@ body{
 
 /*  question screen ////////////////////////*/
 .questionScreen{
+	position: absolute;
 	z-index: 2;
 	
 }

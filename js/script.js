@@ -44,28 +44,35 @@ var Answer1 = "";
 var Answer2 = "";
 var selectedDef= "";
 var selectedRight = "";
+var judgment = "";
 
 var judgeAnswer = function(){
 	Answer1 = questionsDef[answerDef];
 	Answer2 = questionsRight[answerRight];
 	if (Answer1 === selectedDef && Answer2 === selectedRight){
 		correctAnswers +=1;
+		judgment = "You must work for the Water Board!";
 	}
 	else if(Answer1 === selectedDef){
 		correctAnswers += 0.5;
+		judgment = "Almost!";
 	}
 	else if (Answer2 === selectedRight){
 		correctAnswers += 0.5;
+		judgment = "Check your source!";
+	}
+	else{
+		judgment = "Nope, sorry.";
 	}
 	showAnswer();
 }
 var showAnswer = function(){
 	currentQuestions +=1;
-	$(".modal").removeClass("isHidden");
-	$(".modal h3").text();
-	$(".modal #correctAnswers").text(correctAnswers);
-	$(".modal #currentQuestions").text(currentQuestions);
+	$(".modal > h3").text(judgment);
+	$(".modal > #correctAnswers").text(correctAnswers+"of");
+	$(".modal > #currentQuestions").text(currentQuestions);
 	$(".modal > .button > p").text("Next Question");
+	$(".modal").removeClass("isHidden");
 }
 
 
