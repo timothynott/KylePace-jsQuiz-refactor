@@ -3,6 +3,8 @@ var correctAnswers = 0;
 
 var newGame = function(){
 	currentQuestions = 0;
+	correctAnswers = 0;
+	$(".questionScreen").addClass("isHidden");
 	$(".modal h3").text("Welcome to the California Water Rights Quiz!");
 	$(".modal > p").text("Test your knowledge on water sources as the Division of Water Rights sees them. For each source, pick the correct definition from the list on the left and the type of application that source needs for domestic use.");
 	$(".modal > span").text("");
@@ -104,7 +106,7 @@ var judgeAnswer = function(){
 var showAnswer = function(){
 	
 	$(".modal > #correctAnswers").text(correctAnswers+" of ");
-	$(".modal > #currentQuestions").text(currentQuestions +1);
+	$(".modal > #currentQuestions").text(currentQuestions +1 + " questions");
 	
 	if (currentQuestions < 4){
 		$(".modal > h3").text(judgment);
@@ -134,6 +136,7 @@ $(document).ready(function(){
 
 	$(".definitions").on("click", function(){
 		$(this).toggleClass("selected");
+		$(this).siblings().removeClass("selected");
 		selectedDef = $(this).children().text();
 		if ($("#right1").hasClass("selected")){
 			selectedRight = $("#right1 > p").text();
@@ -146,6 +149,7 @@ $(document).ready(function(){
 	});
 	$(".rights").on("click", function(){
 		$(this).toggleClass("selected");
+		$(this).siblings().removeClass("selected");
 		selectedRight = $(this).children().text();
 		if ($("#def1").hasClass("selected")){
 			selectedDef = $("#def1 > p").text();
