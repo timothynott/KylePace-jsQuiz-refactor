@@ -107,16 +107,18 @@ var showAnswer = function(){
 		$(".modal > h3").text("Your final score is");
 		$(".modal > p").text("Thanks for playing!");
 		$(".modal > .button > p").text("Play again!");
+		$(".modal > #share").removeClass("isHidden");
 		currentQuestions = 0;
+		correctAnswers = 0;
 	}
 
 	setTimeout(function(){
 		$(".modal").removeClass("isHidden");
-	}, 400);
+	}, 600);
 	
 	setTimeout(function(){
 		$(".questionScreen").addClass("isHidden");
-	}, 400)
+	}, 600)
 }
 
 var newGame = function(){
