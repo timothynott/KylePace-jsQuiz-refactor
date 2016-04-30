@@ -42,6 +42,7 @@ body{
 	background-color: #285FCC;
 	padding: 1em;
 	text-align: center;
+	z-index: 99;
 }
 .module > p{
 	padding: 1em 0;
@@ -68,6 +69,7 @@ body{
 
 /*  question screen ////////////////////////*/
 .questionScreen{
+	z-index: 2;
 	
 }
 .questionScreen #source{
