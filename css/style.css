@@ -82,11 +82,12 @@ a{
 .questionScreen #source{
 	text-align: center;
 	height: 98px;
+	color: #3F557F;
 }
 
 .answerChoices{
 	display: flex;
-	
+	background-color: #285FCC;
 	cursor: pointer;
 }
 
@@ -104,7 +105,7 @@ a{
 .rights{
 	height: 150px;
 	border-top: 2px solid #7FAAFF;
-	width: 251px;
+	width: 250px;
 }
 
 .selected{
