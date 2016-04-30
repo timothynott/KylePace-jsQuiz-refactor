@@ -113,9 +113,11 @@ a{
 }
 .definitions:hover{
 	background-color: #3F557F;
+	transition: all 0.3s ease-in;
 }
 .rights:hover{
 	background-color: #3F557F;
+	transition: all 0.3s ease-in;
 }
 
 .selected{
