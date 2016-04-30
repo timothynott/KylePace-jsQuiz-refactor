@@ -37,7 +37,6 @@ body{
 }
 /* ///////// module //////////////////// */
 .module{
-	display: none;
 	margin: 2em 1em;
 	border: 2px solid white;
 	background-color: #285FCC;
@@ -48,13 +47,24 @@ body{
 	padding: 1em 0;
 }
 
-.module #newGame{
+.module > #nextQuestion{
 	border: 2px solid white;
 	max-width: 150px;
 	margin: auto;
 	padding: 0;
 }
+.button:hover{
+	cursor: pointer;
+	transition: all 0.3s ease-in;
+	background-color: #7FAAFF;
+	color: #285FCC;
+	border: 2px solid #285FCC;
+}
 
+/* isHidden class will be toggled */
+.isHidden{
+	display:none;
+}
 
 /*  question screen ////////////////////////*/
 .questionScreen{
