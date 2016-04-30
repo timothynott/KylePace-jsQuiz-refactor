@@ -32,7 +32,6 @@ var answerDef = sources[currentQuestions].correctDefIndex;
 var answerRight = sources[currentQuestions].correctRightIndex;
 
 var getQuestion = function(){
-	currentQuestions +=1;
 	$(".module").addClass("isHidden");
 	$(".questionScreen").removeClass("isHidden");
 	$("#def1").text(questionsDef[0]);
@@ -41,20 +40,23 @@ var getQuestion = function(){
 	$("#right2").text(questionsRight[1]);
 }
 
+var Answer1 = "";
+var Answer2 = "";
 var judgeAnswer = function(){
-	var Answer1 = $(".definitionChoices".answerDef);
+	Answer1 = $(".definitionChoices".answerDef);
 	if (Answer1.hasClass("selected")){
 		correctAnswers +=1;
 	}
 	else{}
 
-	var Answer2 = $(".rightChoices".answerRight);
+	Answer2 = $(".rightChoices".answerRight);
 	if (Answer2.hasClass("selected")){
 		correctAnswers +=1;
 	}
 
 }
 var showAnswer = function(){
+	currentQuestions +=1;
 	$(".module h3").text();
 	$(".module #correctAnswers").text(correctAnswers);
 	$(".module #currentQuestions").text(currentQuestions);
@@ -72,24 +74,24 @@ $(document).ready(function(){
 	$("#newGame").mousedown(newGame);
 	$("#nextQuestion").click(getQuestion);
 
-	$(".definitionChoices").on("click", "#def1", function(){
+	$(".definitionChoices").on("click", ".definitions", function(){
 		$(this).toggleClass("selected");
-		if ($(".rightChoices"):nth-child(1).hasClass("selected")){
+		if ($(".rightChoices:nth-child(1)").hasClass("selected")){
 			judgeAnswer();
 			showAnswer();
 		}
-		else if ($(".rightChoices"):nth-child(2).hasClass("selected")){
+		else if ($(".rightChoices:nth-child(2)").hasClass("selected")){
 			judgeAnswer();
 			showAnswer();
 		}
 	});
-	$(".rightChoices").mousedown(function(){
+	$(".rightChoices").on("click", ".rights", function(){
 		$(this).toggleClass("selected");
-		if ($(".definitionChoices"):nth-child(1).hasClass("selected")){
+		if ($(".definitionChoices:nth-child(1)").hasClass("selected")){
 			judgeAnswer();
 			showAnswer();
 		}
-		else if ($(".definitionChoices"):nth-child(2).hasClass("selected")){
+		else if ($(".definitionChoices:nth-child(2)").hasClass("selected")){
 			judgeAnswer();
 			showAnswer();
 		}

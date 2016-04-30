@@ -95,7 +95,12 @@ body{
 .rights{
 	height: 150px;
 	border-top: 2px solid white;
-	max-width: 250px;
+	max-width: 251px;
+}
+
+.selected{
+	background-color: #7FAAFF;
+	color: #285FCC;
 }
 
 
