@@ -137,5 +137,7 @@ var newGame = function(){
 	$(".modal > span").text("");
 	$(".modal > .button > p").text("Start Game");
 	$(".modal").removeClass("isHidden");
+	$("body").css("background-color", "#3277FF");
+
 	
 }
