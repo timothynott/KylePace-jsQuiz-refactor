@@ -42,17 +42,20 @@ var getQuestion = function(){
 
 var Answer1 = "";
 var Answer2 = "";
-var selected1= "";
+var selectedDef= "";
+var selectedRight = "";
+
 var judgeAnswer = function(){
-	Answer1 = questionsDef.answerDef;
-	if (Answer1 === selected1){
+	Answer1 = questionsDef[answerDef];
+	Answer2 = questionsRight[answerRight];
+	if (Answer1 === selectedDef && Answer2 === selectedRight){
 		correctAnswers +=1;
 	}
-	else{}
-
-	Answer2 = $(".rightChoices".answerRight);
-	if (Answer2.hasClass("selected")){
-		correctAnswers +=1;
+	else if(Answer1 === selectedDef){
+		correctAnswers += 0.5;
+	}
+	else if (Answer2 === selectedRight){
+		correctAnswers += 0.5;
 	}
 	showAnswer();
 }
@@ -78,21 +81,25 @@ $(document).ready(function(){
 
 	$(".definitions").on("click", function(){
 		$(this).toggleClass("selected");
+		selectedDef = $(this).children().text();
 		if ($("#right1").hasClass("selected")){
-			judgeAnswer();
 			selectedRight = $("#right1>p").text();
+			judgeAnswer();
 		}
 		else if ($("#right2").hasClass("selected")){
-			judgeAnswer();
 			selectedRight = $("#right2 > p").text();
+			judgeAnswer();
 		}
 	});
 	$(".rights").on("click", function(){
 		$(this).toggleClass("selected");
+		selectedRight = $(this).children().text();
 		if ($("#def1").hasClass("selected")){
+			selectedDef = $("#def1 > p").text();
 			judgeAnswer();
 		}
 		else if ($("#def2").hasClass("selected")){
+			selectedDef = $("#def2 > p").text();
 			judgeAnswer();
 		}
 	});
