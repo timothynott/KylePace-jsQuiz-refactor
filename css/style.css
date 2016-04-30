@@ -11,6 +11,10 @@ body{
 	padding: 0;
 	color: #7FAAFF;
 }
+a{
+	text-decoration: none;
+	color: #7FAAFF;
+}
 
 .container{
 	top: 5em;
@@ -94,13 +98,13 @@ body{
 	height: 150px;
 	border-right: 2px solid white;
 	border-top: 2px solid white;
-	max-width: 250px;
+	width: 250px;
 }
 
 .rights{
 	height: 150px;
 	border-top: 2px solid white;
-	max-width: 251px;
+	width: 251px;
 }
 
 .selected{
