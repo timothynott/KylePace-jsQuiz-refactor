@@ -7,8 +7,8 @@ var newGame = function(){
 }
 
 var riparian = {
-	defOptions: ["from a stream that touches your property", "option 2"],
-	rightOptions: ["first option", "need to file a statement of use"],
+	defOptions: ["from a stream that touches your property", "from a stream that supports spawning salmonids"],
+	rightOptions: ["no action needed", "need to file a statement of use"],
 	correctDefIndex: 0,
 	correctRightIndex: 1
 }
@@ -34,17 +34,18 @@ var answerRight = sources[currentQuestions].correctRightIndex;
 var getQuestion = function(){
 	$(".module").addClass("isHidden");
 	$(".questionScreen").removeClass("isHidden");
-	$("#def1").text(questionsDef[0]);
-	$("#def2").text(questionsDef[1]);
-	$("#right1").text(questionsRight[0]);
-	$("#right2").text(questionsRight[1]);
+	$("#def1 > p").text(questionsDef[0]);
+	$("#def2 > p").text(questionsDef[1]);
+	$("#right1 > p").text(questionsRight[0]);
+	$("#right2 > p").text(questionsRight[1]);
 }
 
 var Answer1 = "";
 var Answer2 = "";
+var selected1= "";
 var judgeAnswer = function(){
-	Answer1 = $(".definitionChoices".answerDef);
-	if (Answer1.hasClass("selected")){
+	Answer1 = questionsDef.answerDef;
+	if (Answer1 === selected1){
 		correctAnswers +=1;
 	}
 	else{}
@@ -53,10 +54,11 @@ var judgeAnswer = function(){
 	if (Answer2.hasClass("selected")){
 		correctAnswers +=1;
 	}
-
+	showAnswer();
 }
 var showAnswer = function(){
 	currentQuestions +=1;
+	$(".module").removeClass("isHidden");
 	$(".module h3").text();
 	$(".module #correctAnswers").text(correctAnswers);
 	$(".module #currentQuestions").text(currentQuestions);
@@ -74,26 +76,25 @@ $(document).ready(function(){
 	$("#newGame").mousedown(newGame);
 	$("#nextQuestion").click(getQuestion);
 
-	$(".definitionChoices").on("click", ".definitions", function(){
+	$(".definitions").on("click", function(){
 		$(this).toggleClass("selected");
-		if ($(".rightChoices:nth-child(1)").hasClass("selected")){
+		
+		if ($(".rightChoise:nth-child(1)").hasClass("selected")){
 			judgeAnswer();
-			showAnswer();
+			selected1 = $(this).text();
 		}
 		else if ($(".rightChoices:nth-child(2)").hasClass("selected")){
 			judgeAnswer();
-			showAnswer();
+			selected1 = $(this).text();
 		}
 	});
-	$(".rightChoices").on("click", ".rights", function(){
+	$(".rights").on("click", function(){
 		$(this).toggleClass("selected");
 		if ($(".definitionChoices:nth-child(1)").hasClass("selected")){
 			judgeAnswer();
-			showAnswer();
 		}
 		else if ($(".definitionChoices:nth-child(2)").hasClass("selected")){
 			judgeAnswer();
-			showAnswer();
 		}
 	});
 
