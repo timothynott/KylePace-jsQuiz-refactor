@@ -35,8 +35,8 @@ body{
 	width: 50%;
 	text-align: right
 }
-/* ///////// module //////////////////// */
-.module{
+/* ///////// modal //////////////////// */
+.modal{
 	margin: 2em 1em;
 	border: 2px solid white;
 	background-color: #285FCC;
@@ -44,11 +44,11 @@ body{
 	text-align: center;
 	z-index: 99;
 }
-.module > p{
+.modal > p{
 	padding: 1em 0;
 }
 
-.module > #nextQuestion{
+.modal > #nextQuestion{
 	border: 2px solid white;
 	max-width: 150px;
 	margin: auto;

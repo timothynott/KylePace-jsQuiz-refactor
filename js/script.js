@@ -32,7 +32,7 @@ var answerDef = sources[currentQuestions].correctDefIndex;
 var answerRight = sources[currentQuestions].correctRightIndex;
 
 var getQuestion = function(){
-	$(".module").addClass("isHidden");
+	$(".modal").addClass("isHidden");
 	$(".questionScreen").removeClass("isHidden");
 	$("#def1 > p").text(questionsDef[0]);
 	$("#def2 > p").text(questionsDef[1]);
@@ -58,34 +58,33 @@ var judgeAnswer = function(){
 }
 var showAnswer = function(){
 	currentQuestions +=1;
-	$(".module").removeClass("isHidden");
-	$(".module h3").text();
-	$(".module #correctAnswers").text(correctAnswers);
-	$(".module #currentQuestions").text(currentQuestions);
-	$(".module > .button > p").text("Next Question");
+	$(".modal").removeClass("isHidden");
+	$(".modal h3").text();
+	$(".modal #correctAnswers").text(correctAnswers);
+	$(".modal #currentQuestions").text(currentQuestions);
+	$(".modal > .button > p").text("Next Question");
 }
 
 
 
 ///////////////////////////////  ON LOAD //////////////////////////////
 $(document).ready(function(){
-	$(".module h3").text("Welcome to the California Water Rights Quiz!");
-	$(".module > p").text("Test your knowledge on water sources as the Division of Water Rights sees them. For each source, pick the correct definition from the list on the left and the type of application that source needs for domestic use.")
-	$(".module > .button > p").text("New Game");
+	$(".modal h3").text("Welcome to the California Water Rights Quiz!");
+	$(".modal > p").text("Test your knowledge on water sources as the Division of Water Rights sees them. For each source, pick the correct definition from the list on the left and the type of application that source needs for domestic use.")
+	$(".modal > .button > p").text("New Game");
 
 	$("#newGame").mousedown(newGame);
 	$("#nextQuestion").click(getQuestion);
 
 	$(".definitions").on("click", function(){
 		$(this).toggleClass("selected");
-		
 		if ($("#right1").hasClass("selected")){
 			judgeAnswer();
-			selected1 = $(this).text();
+			selectedRight = $("#right1>p").text();
 		}
 		else if ($("#right2").hasClass("selected")){
 			judgeAnswer();
-			selected1 = $(this).text();
+			selectedRight = $("#right2 > p").text();
 		}
 	});
 	$(".rights").on("click", function(){
