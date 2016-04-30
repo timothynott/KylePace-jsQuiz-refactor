@@ -17,10 +17,8 @@ a{
 }
 
 .container{
-	top: 5em;
 	max-width: 500px;
-	margin: auto;
-	border: 2px solid #7FAAFF;
+	margin: 3em auto;
 	height: 500px;
 	background-color: #3277FF;
 }
@@ -28,7 +26,7 @@ a{
 .menu{
 	display: flex;
 	justify-content: space-between;
-	border-bottom: 2px solid #7FAAFF;
+	border: 2px solid #7FAAFF;
 	padding: 0 1em;
 	background-color: #3F557F;
 	cursor: pointer;
@@ -79,16 +77,22 @@ a{
 	z-index: 2;
 	
 }
-.questionScreen #source{
+.questionScreen .sourceScreen{
 	text-align: center;
-	height: 98px;
+	padding-top: 10px;
+	height: 200px;
 	color: #3F557F;
+	border-right: 2px solid #7FAAFF;
+	border-left: 2px solid #7FAAFF;
 }
 
 .answerChoices{
 	display: flex;
 	background-color: #285FCC;
 	cursor: pointer;
+	border-right: 2px solid #7FAAFF;
+	border-left: 2px solid #7FAAFF;
+	border-bottom: 2px solid #7FAAFF;
 }
 
 .answerChoices p{
@@ -99,13 +103,19 @@ a{
 	height: 120px;
 	border-right: 2px solid #7FAAFF;
 	border-top: 2px solid #7FAAFF;
-	width: 250px;
+	width: 247px;
 }
 
 .rights{
 	height: 120px;
 	border-top: 2px solid #7FAAFF;
-	width: 250px;
+	width: 247px;
+}
+.definitions:hover{
+	background-color: #3F557F;
+}
+.rights:hover{
+	background-color: #3F557F;
 }
 
 .selected{

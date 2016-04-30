@@ -15,7 +15,7 @@ var riparian = {
 	rightOptions: ["no action needed", "file a statement of use"],
 	correctDefIndex: 0,
 	correctRightIndex: 1,
-	toShow: "Riparian properties have a riparian right to natural flow, but don't go building any dams or storing any water."
+	toShow: "Riparian properties have a riparian right to natural flow, but you need to let the Water Board know you're using it and don't go building any dams or storing any water."
 }
 var appropriative = {
 	name: "Appropriative",
@@ -112,11 +112,11 @@ var showAnswer = function(){
 
 	setTimeout(function(){
 		$(".modal").removeClass("isHidden");
-	}, 500);
+	}, 400);
 	
 	setTimeout(function(){
 		$(".questionScreen").addClass("isHidden");
-	}, 500)
+	}, 400)
 }
 
 var newGame = function(){
