@@ -3,7 +3,11 @@ var correctAnswers = 0;
 
 var newGame = function(){
 	currentQuestions = 0;
-	getQuestion();
+	$(".modal h3").text("Welcome to the California Water Rights Quiz!");
+	$(".modal > p").text("Test your knowledge on water sources as the Division of Water Rights sees them. For each source, pick the correct definition from the list on the left and the type of application that source needs for domestic use.")
+	$(".modal > .button > p").text("New Game");
+	$(".modal").removeClass("isHidden");
+	
 }
 var supplier = {
 	name: "Water Supplier",
@@ -19,7 +23,7 @@ var riparian = {
 	rightOptions: ["no action needed", "file a statement of use"],
 	correctDefIndex: 0,
 	correctRightIndex: 1,
-	toShow: "Riparian properties have a riparian right to natural flow, but don't go building any dams."
+	toShow: "Riparian properties have a riparian right to natural flow, but don't go building any dams or storing any water."
 }
 var appropriative = {
 	name: "Appropriative",
@@ -96,23 +100,32 @@ var judgeAnswer = function(){
 	showAnswer();
 }
 var showAnswer = function(){
-	$(".modal > h3").text(judgment);
+	
 	$(".modal > #correctAnswers").text(correctAnswers+" of ");
 	$(".modal > #currentQuestions").text(currentQuestions +1);
-	$(".modal > p").text(sources[currentQuestions].toShow);
-	$(".modal > .button > p").text("Next Question");
+	
+	if (currentQuestions < 4){
+		$(".modal > h3").text(judgment);
+		$(".modal > p").text(sources[currentQuestions].toShow);
+		$(".modal > .button > p").text("Next Question");
+		currentQuestions +=1;
+	}
+	else{
+		$(".modal > h3").text("Your final score is");
+		$(".modal > p").text("Thanks for playing!");
+		$(".modal > .button > p").text("Play again!");
+		currentQuestions = 0;
+	}
+
 	$(".modal").removeClass("isHidden");
 	$(".questionScreen").addClass("isHidden");
-	currentQuestions +=1;
 }
 
 
 
 ///////////////////////////////  ON LOAD //////////////////////////////
 $(document).ready(function(){
-	$(".modal h3").text("Welcome to the California Water Rights Quiz!");
-	$(".modal > p").text("Test your knowledge on water sources as the Division of Water Rights sees them. For each source, pick the correct definition from the list on the left and the type of application that source needs for domestic use.")
-	$(".modal > .button > p").text("New Game");
+	newGame();
 
 	$("#newGame").mousedown(newGame);
 	$("#nextQuestion").click(getQuestion);

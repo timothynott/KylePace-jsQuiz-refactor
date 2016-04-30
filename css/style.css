@@ -9,7 +9,7 @@ body{
 	font-family: "Cambay", sans-serif;
 	margin: 0;
 	padding: 0;
-	color: #7FAAFF;
+	color: #9EAAFF;
 }
 a{
 	text-decoration: none;
@@ -20,7 +20,7 @@ a{
 	top: 5em;
 	max-width: 500px;
 	margin: auto;
-	border: 2px solid white;
+	border: 2px solid #7FAAFF;
 	height: 500px;
 	background-color: #3277FF;
 }
@@ -28,34 +28,34 @@ a{
 .menu{
 	display: flex;
 	justify-content: space-between;
-	border-bottom: 2px solid white;
+	border-bottom: 2px solid #7FAAFF;
 	padding: 0 1em;
 	background-color: #3F557F;
 	cursor: pointer;
 }
 
 .menu #learnMore{
-	border-left: 2px solid white;
+	border-left: 2px solid #7FAAFF;
 	width: 50%;
 	text-align: right
 }
 /* ///////// modal //////////////////// */
 .modal{
-	margin: 2em 1em;
-	border: 2px solid white;
+	margin: 20px 25px;
+	border: 2px solid #7FAAFF;
 	background-color: #285FCC;
 	padding: 1em;
 	text-align: center;
 	z-index: 99;
 	position: absolute;
-	max-width: 400px;
+	width: 400px;
 }
 .modal > p{
 	padding: 1em 0;
 }
 
 .modal > #nextQuestion{
-	border: 2px solid white;
+	border: 2px solid #7FAAFF;
 	max-width: 150px;
 	margin: auto;
 	padding: 0;
@@ -96,14 +96,14 @@ a{
 
 .definitions{
 	height: 150px;
-	border-right: 2px solid white;
-	border-top: 2px solid white;
+	border-right: 2px solid #7FAAFF;
+	border-top: 2px solid #7FAAFF;
 	width: 250px;
 }
 
 .rights{
 	height: 150px;
-	border-top: 2px solid white;
+	border-top: 2px solid #7FAAFF;
 	width: 251px;
 }
 
