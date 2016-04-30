@@ -26,18 +26,22 @@ var rain = {
 }
 
 var sources = [riparian, appropriative, groundwater, spring, rain];
-var questionsDef = sources[currentQuestions].defOptions;
-var questionsRight = sources[currentQuestions].rightOptions;
-var answerDef = sources[currentQuestions].correctDefIndex;
-var answerRight = sources[currentQuestions].correctRightIndex;
+var questionsDef = [];
+var questionsRight = [];
+var answerDef = 0;
+var answerRight = 0;
 
 var getQuestion = function(){
 	$(".modal").addClass("isHidden");
-	$(".questionScreen").removeClass("isHidden");
+	questionsDef = sources[currentQuestions].defOptions;
+	questionsRight = sources[currentQuestions].rightOptions;
+	answerDef = sources[currentQuestions].correctDefIndex;
+	answerRight = sources[currentQuestions].correctRightIndex;
 	$("#def1 > p").text(questionsDef[0]);
 	$("#def2 > p").text(questionsDef[1]);
 	$("#right1 > p").text(questionsRight[0]);
 	$("#right2 > p").text(questionsRight[1]);
+	$(".questionScreen").removeClass("isHidden");
 }
 
 var Answer1 = "";
@@ -69,10 +73,12 @@ var judgeAnswer = function(){
 var showAnswer = function(){
 	currentQuestions +=1;
 	$(".modal > h3").text(judgment);
-	$(".modal > #correctAnswers").text(correctAnswers+"of");
+	$(".modal > #correctAnswers").text(correctAnswers+" of ");
 	$(".modal > #currentQuestions").text(currentQuestions);
+	$(".modal > p").text("");
 	$(".modal > .button > p").text("Next Question");
 	$(".modal").removeClass("isHidden");
+	$(".questionScreen").addClass("isHidden");
 }
 
 
