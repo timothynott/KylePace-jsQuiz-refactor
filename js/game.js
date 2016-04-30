@@ -20,14 +20,14 @@ var riparian = {
 var appropriative = {
 	name: "Appropriative",
 	defOptions: ["from a stream that does not touch your property", "from an area with a net water gain"],
-	rightOptions: ["no action needed", "pay for and file water right annually"],
+	rightOptions: ["no action needed", "apply for a water right and file use annually"],
 	correctDefIndex: 0,
 	correctRightIndex: 1,
 	toShow: "Do you have a stream on your property that wouldn't be there naturally? Better make sure the Water Board knows about it..."
 }
 var groundwater = {
 	name: "Groundwater",
-	defOptions: ["from an artisan spring", "from a well"],
+	defOptions: ["from an artesian spring", "from a well"],
 	rightOptions: ["no action needed", "pay for and file water right annually"],
 	correctDefIndex: 1,
 	correctRightIndex: 0,
