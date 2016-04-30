@@ -79,21 +79,21 @@ $(document).ready(function(){
 	$(".definitions").on("click", function(){
 		$(this).toggleClass("selected");
 		
-		if ($(".rightChoise:nth-child(1)").hasClass("selected")){
+		if ($("#right1").hasClass("selected")){
 			judgeAnswer();
 			selected1 = $(this).text();
 		}
-		else if ($(".rightChoices:nth-child(2)").hasClass("selected")){
+		else if ($("#right2").hasClass("selected")){
 			judgeAnswer();
 			selected1 = $(this).text();
 		}
 	});
 	$(".rights").on("click", function(){
 		$(this).toggleClass("selected");
-		if ($(".definitionChoices:nth-child(1)").hasClass("selected")){
+		if ($("#def1").hasClass("selected")){
 			judgeAnswer();
 		}
-		else if ($(".definitionChoices:nth-child(2)").hasClass("selected")){
+		else if ($("#def2").hasClass("selected")){
 			judgeAnswer();
 		}
 	});
