@@ -135,7 +135,7 @@ var newGame = function(){
 	$(".modal h3").text("Welcome to the California Water Rights Quiz!");
 	$(".modal > p").text("Test your knowledge on water rights required for the domestic use of different water sources. For each source, pick the correct definition from the left column and the required action from the right column.");
 	$(".modal > span").text("");
-	$(".modal > .button > p").text("New Game");
+	$(".modal > .button > p").text("Start Game");
 	$(".modal").removeClass("isHidden");
 	
 }
