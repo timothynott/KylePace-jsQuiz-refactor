@@ -1,6 +1,6 @@
 var currentQuestions = 0;
 var correctAnswers = 0;
-
+///questions as objects//////////
 var supplier = {
 	name: "Water Supplier",
 	defOptions: ["if you only use bottled water", "from a company or public utility"],
@@ -48,7 +48,7 @@ var questionsDef = [];
 var questionsRight = [];
 var answerDef = 0;
 var answerRight = 0;
-
+//// 1. get a new question ///////
 var getQuestion = function(){
 	$(".modal").addClass("isHidden");
 	$(".definitions").removeClass("selected");
@@ -70,7 +70,7 @@ var Answer2 = "";
 var selectedDef= "";
 var selectedRight = "";
 var judgment = "";
-
+//// 2. user selects options and they are compared to answers////
 var judgeAnswer = function(){
 	Answer1 = questionsDef[answerDef];
 	Answer2 = questionsRight[answerRight];
@@ -92,8 +92,8 @@ var judgeAnswer = function(){
 	
 	showAnswer();
 }
+/// 3. answer is shown in modal ////
 var showAnswer = function(){
-	
 	$(".modal > #correctAnswers").text(correctAnswers+" of ");
 	$(".modal > #currentQuestions").text(currentQuestions +1 + " questions");
 	
@@ -110,8 +110,13 @@ var showAnswer = function(){
 		currentQuestions = 0;
 	}
 
-	$(".modal").delay(1000).removeClass("isHidden");
-	$(".questionScreen").delay(1000).addClass("isHidden");
+	setTimeout(function(){
+		$(".modal").removeClass("isHidden");
+	}, 500);
+	
+	setTimeout(function(){
+		$(".questionScreen").addClass("isHidden");
+	}, 500)
 }
 
 var newGame = function(){
