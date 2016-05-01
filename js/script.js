@@ -14,6 +14,30 @@ $(document).ready(function(){
 	$("body").css("background-color", "#3277FF");
 	newGame();
 
+    $('.answer').on('click', function() {
+        // when we click on an answer, we need to assign the value to a variable and determine if both columns have a selection so we can judge the answer
+
+        // decorate the page
+        $(this).toggleClass("selected");
+		$(this).siblings().removeClass("selected");
+
+        // if the id of the clicked item contains 'def' we clicked on something in the left column
+		if($(this).attr('id').indexOf('def') > -1) {
+            selectedDef = $(this).children().text();
+        }
+        else {
+            selectedRight = $(this).children().text();
+        }
+
+        // do we have a selection in both columns?
+        if(selectedDef !== '' && selectedRight !== '') {
+            judgeAnswer();
+            showAnswer();
+        }
+    });
+/*
+TN: refactoring to reduce redundant code
+
 	//move on to judgeAnswer function if there is a selction in both columns
 	$(".definitions").on("click", function(){
 		$(this).toggleClass("selected");
@@ -41,7 +65,7 @@ $(document).ready(function(){
 			judgeAnswer();
 		}
 	});
-
+*/
 	
 	$("#newGame").mousedown(newGame);
 	$("#nextQuestion").click(getQuestion);

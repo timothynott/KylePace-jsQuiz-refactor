@@ -44,51 +44,58 @@ var rain = {
 }
 
 var sources = [supplier, riparian, appropriative, groundwater, rain];
+/* TN: these do not need to be defined globally as they are only used within getQuestion()
 var questionsDef = [];
 var questionsRight = [];
-var answerDef = 0;
-var answerRight = 0;
+*/
+var answerDef = ''; // current correct definition
+var answerRight = ''; // current correct right
+
 //// 1. get a new question ///////
 var getQuestion = function(){
-	// don't show the modal anymore
+    if(currentQuestions === sources.length) {
+        // we must have run through all the questions once -- let's start a ne game.
+        newGame();
+        return;
+    }
+    // don't show the modal anymore
 	$(".modal").addClass("isHidden");
-	// de-select all answer choices
-	$(".definitions").removeClass("selected");
-	$(".rights").removeClass("selected");
-	// change the background
+
+    // de-select all answer choices
+    $(".answer").removeClass("selected");
+	selectedDef = '';
+    selectedRight = '';
+
+    // change the background
 	$("body").css("background-image", "url(" + backgrounds[currentQuestions]+")");
-	// pick answer options and correct answer index from source object
-	questionsDef = sources[currentQuestions].defOptions;
-	questionsRight = sources[currentQuestions].rightOptions;
-	answerDef = sources[currentQuestions].correctDefIndex;
-	answerRight = sources[currentQuestions].correctRightIndex;
-	// put the answer options onto the page
+
+    // get correct answer from source object
+	answerDef = sources[currentQuestions].defOptions[sources[currentQuestions].correctDefIndex];
+	answerRight = sources[currentQuestions].rightOptions[sources[currentQuestions].correctRightIndex];
+
+    // put the answer options onto the page
 	$("#source").text(sources[currentQuestions].name);
-	$("#def1 > p").text(questionsDef[0]);
-	$("#def2 > p").text(questionsDef[1]);
-	$("#right1 > p").text(questionsRight[0]);
-	$("#right2 > p").text(questionsRight[1]);
+	$("#def1 > p").text(sources[currentQuestions].defOptions[0]);
+	$("#def2 > p").text(sources[currentQuestions].defOptions[1]);
+	$("#right1 > p").text(sources[currentQuestions].rightOptions[0]);
+	$("#right2 > p").text(sources[currentQuestions].rightOptions[1]);
 	$(".questionScreen").removeClass("isHidden");
 }
 
-var Answer1 = "";
-var Answer2 = "";
-var selectedDef= "";
-var selectedRight = "";
+var selectedDef= ""; // user's selected definition
+var selectedRight = ""; // user's selected definition
 var judgment = "";
 //// 2. user selects options and they are compared to answers////
 var judgeAnswer = function(){
-	Answer1 = questionsDef[answerDef];
-	Answer2 = questionsRight[answerRight];
-	if (Answer1 === selectedDef && Answer2 === selectedRight){
+	if (answerDef === selectedDef && answerRight === selectedRight){
 		correctAnswers +=1;
 		judgment = "You must work for the Water Board!";
 	}
-	else if(Answer1 === selectedDef){
+	else if(answerDef === selectedDef){
 		correctAnswers += 0.5;
 		judgment = "Almost! Read up on CA Water Rights.";
 	}
-	else if (Answer2 === selectedRight){
+	else if (answerRight === selectedRight){
 		correctAnswers += 0.5;
 		judgment = "Check your source!";
 	}
@@ -96,28 +103,32 @@ var judgeAnswer = function(){
 		judgment = "Nope, sorry.";
 	}
 	
-	showAnswer();
+	// moved this to the on.click call to simplify showAnswer();
 }
 /// 3. answer is shown in modal ////
 var showAnswer = function(){
-	$(".modal > #correctAnswers").text(correctAnswers+" of ");
-	$(".modal > #currentQuestions").text(currentQuestions +1 + " questions");
 	
-	if (currentQuestions < 4){
+    $(".modal > #correctAnswers").text(correctAnswers+" of ");
+	$(".modal > #currentQuestions").text((currentQuestions + 1) + " questions");
+
+	if (currentQuestions < (sources.length -1)){
 		$(".modal > h3").text(judgment);
 		$(".modal > p").text(sources[currentQuestions].toShow);
 		$(".modal > .button > p").text("Next Question");
-		currentQuestions +=1;
+
 	}
 	else{
 		$(".modal > h3").text("Your final score is");
 		$(".modal > p").text("Thanks for playing!");
 		$(".modal > .button > p").text("Play again!");
 		$(".modal > #share").removeClass("isHidden");
+/*
+TN: this is already done in 'new game'
 		currentQuestions = 0;
 		correctAnswers = 0;
+*/
 	}
-
+    currentQuestions +=1;
 	setTimeout(function(){
 		$(".modal").removeClass("isHidden");
 	}, 600);
@@ -128,8 +139,8 @@ var showAnswer = function(){
 }
 
 var newGame = function(){
-	currentQuestions = 0;
-	correctAnswers = 0;
+	currentQuestions = 0; // reset the question index to point to the beginning
+	correctAnswers = 0; // reset the number of correct answers given
 	$(".modal > #share").addClass("isHidden");
 	$(".questionScreen").addClass("isHidden");
 	$(".modal h3").text("Welcome to the California Water Rights Quiz!");
