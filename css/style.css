@@ -95,19 +95,20 @@ a{
 	border-left: 2px solid #7FAAFF;
 }
 
-.answerChoices{
+#answerChoices{
 	display: flex;
 	background-color: #285FCC;
-	cursor: pointer;
 	border-right: 2px solid #7FAAFF;
 	border-left: 2px solid #7FAAFF;
 	border-bottom: 2px solid #7FAAFF;
 }
 
-.answerChoices p{
-	margin: 1em;
+#answerChoices p{
+	padding: 1em;
+    margin: 0;
 }
 
+/* Lots of redundancy
 .definitions{
 	height: 120px;
 	border-right: 2px solid #7FAAFF;
@@ -128,8 +129,31 @@ a{
 	background-color: #3F557F;
 	transition: all 0.3s ease-in;
 }
+*/
 
-.selected{
+#answerChoices>div:first-child {
+    border-right: 2px solid #7FAAFF;
+}
+
+#answerChoices>div>div {
+    width: 247px;
+    border-top: 2px solid #7FAAFF;
+}
+
+#answerChoices .instruction {
+    background-color: #3F557F;
+    color: #eeeeee;
+}
+#answerChoices .answer {
+    height: 120px;
+    cursor: pointer;
+}
+#answerChoices .answer:hover {
+    background-color: #3F557F;
+	transition: all 0.3s ease-in;
+}
+
+answerChoices .selected{
 	background-color: #7FAAFF;
 	color: #285FCC;
 }
